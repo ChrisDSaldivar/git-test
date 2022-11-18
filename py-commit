@@ -23,5 +23,6 @@ if [ ${PIPESTATUS[0]} -ne 0 ]
         # And then commit
         git add .
         git commit -m "$MSG"
+        git push
     fi
 fi
