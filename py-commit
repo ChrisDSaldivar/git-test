@@ -25,5 +25,3 @@ if [ ${PIPESTATUS[0]} -ne 0 ]
         git commit -m "$MSG"
     fi
 fi
-
-# git show 1904f9dd0b967af1675c099c02bf6a6270d6f346:script.py

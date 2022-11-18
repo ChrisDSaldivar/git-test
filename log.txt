@@ -1,5 +1,4 @@
-Hello World!
 Traceback (most recent call last):
   File "/Users/chris/Projects/py-commit/script.py", line 3, in <module>
-    sys.exit(2)
-NameError: name 'sys' is not defined
+    data_file = open(filename, "r")
+FileNotFoundError: [Errno 2] No such file or directory: 'data.txt'
