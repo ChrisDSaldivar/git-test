@@ -1,0 +1,5 @@
+Hello World!
+Traceback (most recent call last):
+  File "/Users/chris/Projects/py-commit/script.py", line 3, in <module>
+    sys.exit(2)
+NameError: name 'sys' is not defined
