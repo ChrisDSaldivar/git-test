@@ -1,18 +1,21 @@
 #!/bin/bash
 
 python3 "$1" "${@:1:}" 2>&1 | tee log.txt
-const RST = "";
 
 # Check if there was an error
 if [ ${PIPESTATUS[0]} -ne 0 ]
     then
-
-    # Ask if they want to commit
-    echo
-    read -p $'\e[1;36mWould you like to commit: \e[0m' SHOULD_COMMIT
-
-    # If so
-    if [[ $SHOULD_COMMIT == y* ]]
+        # Ask if they want to commit
+        echo
+        read -p $'\e[1;31mThis code crashed. Would you like to commit: \e[0m' SHOULD_COMMIT
+    else
+        # Ask if they want to commit
+        echo
+        read -p $'\e[1;36mWould you like to commit: \e[0m' SHOULD_COMMIT
+fi
+    
+# If so
+if [[ $SHOULD_COMMIT == y* ]]
     then
         # Get their commit message
         read -p $'\e[1;32mEnter a commit message: \e[0m' COMMIT_MESSAGE
@@ -25,5 +28,4 @@ if [ ${PIPESTATUS[0]} -ne 0 ]
         git add .
         git commit -m "$MSG"
         git push
-    fi
 fi
