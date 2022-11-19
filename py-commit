@@ -7,7 +7,7 @@ if [ ${PIPESTATUS[0]} -ne 0 ]
     then
         # Ask if they want to commit
         echo
-        read -p $'\e[1;31mThis code crashed. Would you like to commit: \e[0m' SHOULD_COMMIT
+        read -p $'\e[1;31mThere was a non-zero exit. Would you like to commit: \e[0m' SHOULD_COMMIT
     else
         # Ask if they want to commit
         echo

@@ -1,4 +1,11 @@
+import sys
+from os.path import isfile
+
 filename = "data.txt"
+
+if not isfile(filename):
+    print(f"{filename} not found")
+    sys.exit(1)
 
 data_file = open(filename, "r")
 line = data_file.readline().strip()
