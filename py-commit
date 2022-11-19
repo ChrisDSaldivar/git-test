@@ -1,6 +1,7 @@
 #!/bin/bash
 
 python3 "$1" "${@:1:}" 2>&1 | tee log.txt
+const RST = "";
 
 # Check if there was an error
 if [ ${PIPESTATUS[0]} -ne 0 ]
@@ -8,13 +9,13 @@ if [ ${PIPESTATUS[0]} -ne 0 ]
 
     # Ask if they want to commit
     echo
-    read -p $'\e[1;36mWould you like to commit: ' SHOULD_COMMIT
+    read -p $'\e[1;36mWould you like to commit: \e[0m' SHOULD_COMMIT
 
     # If so
     if [[ $SHOULD_COMMIT == y* ]]
     then
         # Get their commit message
-        read -p $'\e[1;36mEnter a commit message: ' COMMIT_MESSAGE
+        read -p $'\e[1;32mEnter a commit message: \e[0m' COMMIT_MESSAGE
         COMMIT_MESSAGE="${COMMIT_MESSAGE:0:72}"
 
         # Default to the date/time if they don't give a message
